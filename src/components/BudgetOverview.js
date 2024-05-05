@@ -1,4 +1,4 @@
-export default function BudgetOverview({ income }) {
+export default function BudgetOverview({ income, expenses }) {
   return (
     <section>
       <h2>Budget Overview</h2>
@@ -9,10 +9,12 @@ export default function BudgetOverview({ income }) {
       <article>
         <h3>Monthly Expenses</h3>
         <ul>
-          <li>
-            <span>type</span>
-            <span>Amount</span>
-          </li>
+          {expenses.map((expense) => (
+            <li>
+              <span>{expense.type}</span>
+              <span>${expense.expense}</span>
+            </li>
+          ))}
         </ul>
       </article>
       <article>

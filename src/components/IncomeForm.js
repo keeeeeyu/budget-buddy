@@ -1,22 +1,24 @@
 import Button from "./Button";
-import { useRef } from "react";
+import { useState } from "react";
 
-export default function Income({ onSetIncome }) {
-  const inputRef = useRef(null);
+export default function Income({ income, onSetIncome }) {
+  const [newIncome, setNewIncome] = useState("");
 
-  function handlerSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
+    onSetIncome(newIncome);
 
-    const curInputValue = inputRef.current.value;
-    onSetIncome(Number(curInputValue));
-
-    inputRef.current.value = 0;
+    setNewIncome("");
   }
 
   return (
-    <form onSubmit={handlerSubmit}>
-      <label>Monthly Income</label>
-      <input type="number" ref={inputRef} />
+    <form onSubmit={handleSubmit}>
+      <label>Monthly Income:</label>
+      <input
+        type="number"
+        value={newIncome}
+        onChange={(e) => setNewIncome(e.target.value)}
+      />
       <Button>Add</Button>
     </form>
   );
