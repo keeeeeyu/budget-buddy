@@ -1,4 +1,9 @@
-export default function BudgetOverview({ income, expenses }) {
+export default function BudgetOverview({
+  income,
+  expenses,
+  savings,
+  monthlySaving,
+}) {
   return (
     <section>
       <h2>Budget Overview</h2>
@@ -22,12 +27,12 @@ export default function BudgetOverview({ income, expenses }) {
 
         <div>
           <span>Savings Goal:</span>
-          <span>$700</span>
+          {savings && <span>${savings}</span>}
         </div>
 
         <div>
           <span>Savings:</span>
-          <span>$500</span>
+          <span>{monthlySaving}</span>
         </div>
       </article>
     </section>

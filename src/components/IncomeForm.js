@@ -6,7 +6,7 @@ export default function Income({ income, onSetIncome }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSetIncome(newIncome);
+    onSetIncome(Number(newIncome));
 
     setNewIncome("");
   }

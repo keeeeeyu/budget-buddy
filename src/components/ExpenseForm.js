@@ -41,7 +41,7 @@ export default function ExpenseForm({ onSetExpenses }) {
       <input
         type="number"
         value={expense}
-        onChange={(e) => setExpense(e.target.value)}
+        onChange={(e) => setExpense(Number(e.target.value))}
       ></input>
       <Button>Add</Button>
     </form>
